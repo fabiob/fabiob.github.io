@@ -33,7 +33,7 @@ const config = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({title: 'fabiob'}),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: `dist/vendor${isProduction ? '-[hash]' : ''}.js`,
