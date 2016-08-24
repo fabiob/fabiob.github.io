@@ -10,7 +10,7 @@ const isProduction = process.env['NODE_ENV'] === 'production',
 
 const config = {
   entry: {
-    app: ['react-hot-loader/patch', './src/index.js']
+    app: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js']
   },
   output: {
     path: '.',
