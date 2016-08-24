@@ -1,0 +1,17 @@
+{
+  "extends": [ "eslint:recommended", "plugin:react/recommended" ],
+  "plugins": [ "react" ],
+  "rules": {
+    "react/jsx-no-bind": "warn",
+    "react/no-find-dom-node": "warn"
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}
