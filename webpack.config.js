@@ -9,7 +9,9 @@ const isProduction = process.env['NODE_ENV'] === 'production',
       NODE_MODULES = /\bnode_modules\b/;
 
 const config = {
-  entry: './src/index.js',
+  entry: {
+    app: ['react-hot-loader/patch', './src/index.js']
+  },
   output: {
     path: '.',
     filename: isProduction ? 'dist/bundle-[hash].js' : 'dist/bundle.js'
@@ -26,14 +28,14 @@ const config = {
       { test: /\.css$/, loader: "style!css" },
       { test: /\.png$/, loader: "url?limit=100000" },
       { test: /\.(jpg|gif)$/, loader: "file" },
-      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
+      { test: /\.(woff2?)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({title: 'fabiob'}),
+    new HtmlWebpackPlugin({ title: 'fabiob' }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: `dist/vendor${isProduction ? '-[hash]' : ''}.js`,

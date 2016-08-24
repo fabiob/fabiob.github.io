@@ -3,11 +3,11 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-function App() {
-  return <h1>Hello</h1>;
-}
+import { AppContainer } from 'react-hot-loader';
+
+import App from './app';
 
 const placeholder = document.createElement('div');
 document.body.appendChild(placeholder);
 
-ReactDOM.render(<App/>, placeholder);
+ReactDOM.render(<AppContainer><App/></AppContainer>, placeholder);
