@@ -1,6 +1,6 @@
 'use strict';
 
-/* globals process __dirname */
+/* globals process */
 
 const webpack           = require('webpack'),
       HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,8 +13,8 @@ const config = {
     app: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js']
   },
   output: {
-    path: '.',
-    filename: isProduction ? 'dist/bundle-[hash].js' : 'dist/bundle.js'
+    path: 'dist',
+    filename: isProduction ? 'bundle-[hash].js' : 'bundle.js'
   },
   module: {
     preLoaders: [
@@ -35,10 +35,10 @@ const config = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({ title: 'fabiob' }),
+    new HtmlWebpackPlugin({ title: 'fabiob', filename: '../index.html' }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: `dist/vendor${isProduction ? '-[hash]' : ''}.js`,
+      filename: `vendor${isProduction ? '-[hash]' : ''}.js`,
       minChunks: m => m.resource && NODE_MODULES.test(m.resource)
     })
   ]
